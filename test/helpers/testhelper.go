@@ -1,7 +1,7 @@
 package helpers
 
 import (
-	"github.com/cellcycle/go-web3/dto"
+	"github.com/mmihi80/go-web3/dto"
 	"math/big"
 )
 

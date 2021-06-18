@@ -25,7 +25,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/cellcycle/go-web3/complex/types"
+	"github.com/mmihi80/go-web3/complex/types"
 	"math/big"
 )
 

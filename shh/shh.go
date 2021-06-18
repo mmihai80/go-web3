@@ -22,9 +22,9 @@
 package shh
 
 import (
-	"github.com/cellcycle/go-web3/dto"
-	"github.com/cellcycle/go-web3/providers"
-	"github.com/cellcycle/go-web3/utils"
+	"github.com/mmihi80/go-web3/dto"
+	"github.com/mmihi80/go-web3/providers"
+	"github.com/mmihi80/go-web3/utils"
 	"math/big"
 )
 

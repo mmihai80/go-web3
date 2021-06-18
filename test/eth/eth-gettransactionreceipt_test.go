@@ -23,9 +23,9 @@ package test
 
 import (
 	"encoding/json"
-	web3 "github.com/cellcycle/go-web3"
-	"github.com/cellcycle/go-web3/dto"
-	"github.com/cellcycle/go-web3/providers"
+	web3 "github.com/mmihi80/go-web3"
+	"github.com/mmihi80/go-web3/dto"
+	"github.com/mmihi80/go-web3/providers"
 	"io/ioutil"
 	"math/big"
 	"testing"
@@ -71,40 +71,39 @@ func TestEthGetTransactionReceipt(t *testing.T) {
 		t.FailNow()
 	}
 
-    if len(receipt.ContractAddress) == 0{
-        t.Error("No contract address")
-        t.FailNow()
-    }
+	if len(receipt.ContractAddress) == 0 {
+		t.Error("No contract address")
+		t.FailNow()
+	}
 
-    if len(receipt.TransactionHash) == 0{
-        t.Error("No transaction hash")
-        t.FailNow()
-    }
+	if len(receipt.TransactionHash) == 0 {
+		t.Error("No transaction hash")
+		t.FailNow()
+	}
 
-    if receipt.TransactionIndex == nil{
-        t.Error("No transaction index")
-        t.FailNow()
-    }
+	if receipt.TransactionIndex == nil {
+		t.Error("No transaction index")
+		t.FailNow()
+	}
 
-    if len(receipt.BlockHash) == 0{
-        t.Error("No block hash")
-        t.FailNow()
-    }
+	if len(receipt.BlockHash) == 0 {
+		t.Error("No block hash")
+		t.FailNow()
+	}
 
-    if (receipt.BlockNumber == nil || receipt.BlockNumber.Cmp(big.NewInt(0)) == 0){
-        t.Error("No block number")
-        t.FailNow()
-    }
+	if receipt.BlockNumber == nil || receipt.BlockNumber.Cmp(big.NewInt(0)) == 0 {
+		t.Error("No block number")
+		t.FailNow()
+	}
 
-    if (receipt.Logs == nil || len(receipt.Logs) == 0){
-        t.Error("No logs")
-        t.FailNow()
-    }
+	if receipt.Logs == nil || len(receipt.Logs) == 0 {
+		t.Error("No logs")
+		t.FailNow()
+	}
 
-    if (!receipt.Status){
-        t.Error("False status")
-        t.FailNow()
-    }
-
+	if !receipt.Status {
+		t.Error("False status")
+		t.FailNow()
+	}
 
 }

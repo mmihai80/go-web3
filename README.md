@@ -1,6 +1,6 @@
 # Ethereum Go Client
 
-[![Build Status](https://travis-ci.org/cellcycle/go-web3.svg?branch=master)](https://travis-ci.org/cellcycle/go-web3)
+[![Build Status](https://travis-ci.org/mmihi80/go-web3.svg?branch=master)](https://travis-ci.org/mmihi80/go-web3)
 
 This is a Ethereum compatible Go Client
 
@@ -164,13 +164,13 @@ TODO List
 ### go get
 
 ```bash
-go get -u github.com/cellcycle/go-web3
+go get -u github.com/mmihi80/go-web3
 ```
 
 ### glide
 
 ```bash
-glide get github.com/cellcycle/go-web3
+glide get github.com/mmihi80/go-web3
 ```
 
 ### Requirements

@@ -22,12 +22,12 @@
 package web3
 
 import (
-	"github.com/cellcycle/go-web3/dto"
-	"github.com/cellcycle/go-web3/eth"
-	"github.com/cellcycle/go-web3/net"
-	"github.com/cellcycle/go-web3/personal"
-	"github.com/cellcycle/go-web3/providers"
-	"github.com/cellcycle/go-web3/utils"
+	"github.com/mmihi80/go-web3/dto"
+	"github.com/mmihi80/go-web3/eth"
+	"github.com/mmihi80/go-web3/net"
+	"github.com/mmihi80/go-web3/personal"
+	"github.com/mmihi80/go-web3/providers"
+	"github.com/mmihi80/go-web3/utils"
 )
 
 // Coin - Ethereum value unity value

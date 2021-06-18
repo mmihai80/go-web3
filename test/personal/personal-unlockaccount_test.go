@@ -24,8 +24,8 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/cellcycle/go-web3"
-	"github.com/cellcycle/go-web3/providers"
+	"github.com/mmihi80/go-web3"
+	"github.com/mmihi80/go-web3/providers"
 )
 
 func TestPersonalUnlockAccount(t *testing.T) {

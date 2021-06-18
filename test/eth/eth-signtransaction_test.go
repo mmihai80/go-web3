@@ -24,10 +24,10 @@ import (
 	"testing"
 
 	"fmt"
-	"github.com/cellcycle/go-web3"
-	"github.com/cellcycle/go-web3/complex/types"
-	"github.com/cellcycle/go-web3/dto"
-	"github.com/cellcycle/go-web3/providers"
+	"github.com/mmihi80/go-web3"
+	"github.com/mmihi80/go-web3/complex/types"
+	"github.com/mmihi80/go-web3/dto"
+	"github.com/mmihi80/go-web3/providers"
 	"math/big"
 )
 
@@ -46,9 +46,9 @@ func TestEthSignTransaction(t *testing.T) {
 	transaction.Nonce = big.NewInt(5)
 	transaction.From = coinbase
 	transaction.To = coinbase
-	transaction.Value = big.NewInt(0).Mul(big.NewInt(500), big.NewInt(1E18))
+	transaction.Value = big.NewInt(0).Mul(big.NewInt(500), big.NewInt(1e18))
 	transaction.Gas = big.NewInt(40000)
-	transaction.GasPrice = big.NewInt(1E9)
+	transaction.GasPrice = big.NewInt(1e9)
 	transaction.Data = types.ComplexString("p2p transaction")
 
 	txID, err := connection.Eth.SignTransaction(transaction)

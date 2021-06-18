@@ -24,9 +24,9 @@ package test
 import (
 	"encoding/json"
 	"fmt"
-	web3 "github.com/cellcycle/go-web3"
-	"github.com/cellcycle/go-web3/dto"
-	"github.com/cellcycle/go-web3/providers"
+	web3 "github.com/mmihi80/go-web3"
+	"github.com/mmihi80/go-web3/dto"
+	"github.com/mmihi80/go-web3/providers"
 	"io/ioutil"
 	"math/big"
 	"testing"

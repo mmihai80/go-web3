@@ -24,8 +24,8 @@ package test
 import (
 	"testing"
 
-	"github.com/cellcycle/go-web3"
-	"github.com/cellcycle/go-web3/providers"
+	"github.com/mmihi80/go-web3"
+	"github.com/mmihi80/go-web3/providers"
 )
 
 func TestEthGetBlockByHash(t *testing.T) {
