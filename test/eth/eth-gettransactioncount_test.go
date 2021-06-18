@@ -23,11 +23,11 @@ package test
 
 import (
 	"fmt"
-	"github.com/mmihi80/go-web3"
-	"github.com/mmihi80/go-web3/complex/types"
-	"github.com/mmihi80/go-web3/dto"
-	"github.com/mmihi80/go-web3/eth/block"
-	"github.com/mmihi80/go-web3/providers"
+	"github.com/mmihai80/go-web3"
+	"github.com/mmihai80/go-web3/complex/types"
+	"github.com/mmihai80/go-web3/dto"
+	"github.com/mmihai80/go-web3/eth/block"
+	"github.com/mmihai80/go-web3/providers"
 	"math/big"
 	"testing"
 	"time"

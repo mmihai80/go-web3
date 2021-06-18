@@ -27,11 +27,11 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/mmihi80/go-web3/eth/block"
+	"github.com/mmihai80/go-web3/eth/block"
 
-	web3 "github.com/mmihi80/go-web3"
-	"github.com/mmihi80/go-web3/dto"
-	"github.com/mmihi80/go-web3/providers"
+	web3 "github.com/mmihai80/go-web3"
+	"github.com/mmihai80/go-web3/dto"
+	"github.com/mmihai80/go-web3/providers"
 )
 
 func TestEthGetcode(t *testing.T) {

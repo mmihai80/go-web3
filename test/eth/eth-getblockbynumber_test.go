@@ -24,8 +24,8 @@ package test
 import (
 	"testing"
 
-	"github.com/mmihi80/go-web3"
-	"github.com/mmihi80/go-web3/providers"
+	"github.com/mmihai80/go-web3"
+	"github.com/mmihai80/go-web3/providers"
 )
 
 func TestEthGetBlockByNumber(t *testing.T) {

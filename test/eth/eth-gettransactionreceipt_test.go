@@ -23,9 +23,9 @@ package test
 
 import (
 	"encoding/json"
-	web3 "github.com/mmihi80/go-web3"
-	"github.com/mmihi80/go-web3/dto"
-	"github.com/mmihi80/go-web3/providers"
+	web3 "github.com/mmihai80/go-web3"
+	"github.com/mmihai80/go-web3/dto"
+	"github.com/mmihai80/go-web3/providers"
 	"io/ioutil"
 	"math/big"
 	"testing"

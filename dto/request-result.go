@@ -26,8 +26,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/mmihi80/go-web3/complex/types"
-	"github.com/mmihi80/go-web3/constants"
+	"github.com/mmihai80/go-web3/complex/types"
+	"github.com/mmihai80/go-web3/constants"
 
 	"encoding/json"
 	"fmt"

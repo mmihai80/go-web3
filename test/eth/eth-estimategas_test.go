@@ -24,9 +24,9 @@ package test
 import (
 	"testing"
 
-	web3 "github.com/mmihi80/go-web3"
-	"github.com/mmihi80/go-web3/dto"
-	"github.com/mmihi80/go-web3/providers"
+	web3 "github.com/mmihai80/go-web3"
+	"github.com/mmihai80/go-web3/dto"
+	"github.com/mmihai80/go-web3/providers"
 	"math/big"
 )
 
