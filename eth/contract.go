@@ -25,12 +25,14 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/mmihai80/go-web3/complex/types"
-	"github.com/mmihai80/go-web3/dto"
 	"strings"
 
-	"github.com/mmihai80/go-web3/utils"
+	"github.com/mmihai80/go-web3/complex/types"
+	"github.com/mmihai80/go-web3/dto"
+
 	"math/big"
+
+	"github.com/mmihai80/go-web3/utils"
 )
 
 // Contract ...
@@ -39,6 +41,8 @@ type Contract struct {
 	abi       string
 	functions map[string][]string
 }
+
+type SigningFunction func(transaction *dto.TransactionParameters) *dto.TransactionParameters
 
 // NewContract - Contract abstraction
 func (eth *Eth) NewContract(abi string) (*Contract, error) {
@@ -87,7 +91,7 @@ func (contract *Contract) prepareTransaction(transaction *dto.TransactionParamet
 
 	function, ok := contract.functions[functionName]
 	if !ok {
-		return nil, errors.New("Function not finded on passed abi")
+		return nil, errors.New("Function not found on passed abi")
 	}
 
 	fullFunction := functionName + "("
@@ -146,6 +150,20 @@ func (contract *Contract) Send(transaction *dto.TransactionParameters, functionN
 	}
 
 	return contract.super.SendTransaction(transaction)
+
+}
+
+func (contract *Contract) SendSigned(transaction *dto.TransactionParameters, sign SigningFunction, functionName string, args ...interface{}) (string, error) {
+
+	transaction, err := contract.prepareTransaction(transaction, functionName, args)
+
+	if err != nil {
+		return "", err
+	}
+
+	transaction = sign(transaction)
+
+	return contract.super.SendRawTransaction(transaction)
 
 }
 
