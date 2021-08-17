@@ -31,17 +31,28 @@ import (
 	"github.com/mmihai80/go-web3/eth/block"
 	"github.com/mmihai80/go-web3/providers"
 	"github.com/mmihai80/go-web3/utils"
+	"github.com/mmihai80/go-web3/wallet"
 )
 
 // Eth - The Eth Module
 type Eth struct {
 	provider providers.ProviderInterface
+	wallet   wallet.WalletInterface
 }
 
 // NewEth - Eth Module constructor to set the default provider
 func NewEth(provider providers.ProviderInterface) *Eth {
 	eth := new(Eth)
 	eth.provider = provider
+	eth.wallet = nil
+	return eth
+}
+
+// NewEth - Eth Module constructor to set the default provider
+func NewEth_wWallet(provider providers.ProviderInterface, wallet wallet.WalletInterface) *Eth {
+	eth := new(Eth)
+	eth.provider = provider
+	eth.wallet = wallet
 	return eth
 }
 
@@ -436,7 +447,7 @@ func (eth *Eth) SendTransaction(transaction *dto.TransactionParameters) (string,
 
 }
 
-// SendTransaction - Creates new message call transaction or a contract creation, if the data field contains code.
+// SignSendTransaction - Sign Transaction and Creates new message call transaction or a contract creation
 // Reference: https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_sendRawTransaction
 // Parameters:
 //    1. Object - The transaction object
@@ -450,7 +461,11 @@ func (eth *Eth) SendTransaction(transaction *dto.TransactionParameters) (string,
 // Returns:
 //	  - DATA, 32 Bytes - the transaction hash, or the zero hash if the transaction is not yet available.
 // Use eth_getTransactionReceipt to get the contract address, after the transaction was mined, when you created a contract.
-func (eth *Eth) SendRawTransaction(transaction *dto.TransactionParameters) (string, error) {
+func (eth *Eth) SignSendTransaction(transaction *dto.TransactionParameters) (string, error) {
+
+	if eth.wallet != nil {
+		transaction = eth.wallet.Sign(transaction)
+	}
 
 	params := make([]*dto.RequestTransactionParameters, 1)
 	params[0] = transaction.Transform()

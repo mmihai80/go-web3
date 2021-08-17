@@ -153,7 +153,7 @@ func (contract *Contract) Send(transaction *dto.TransactionParameters, functionN
 
 }
 
-func (contract *Contract) SendSigned(transaction *dto.TransactionParameters, sign SigningFunction, functionName string, args ...interface{}) (string, error) {
+func (contract *Contract) SignSend(transaction *dto.TransactionParameters, functionName string, args ...interface{}) (string, error) {
 
 	transaction, err := contract.prepareTransaction(transaction, functionName, args)
 
@@ -161,9 +161,7 @@ func (contract *Contract) SendSigned(transaction *dto.TransactionParameters, sig
 		return "", err
 	}
 
-	transaction = sign(transaction)
-
-	return contract.super.SendRawTransaction(transaction)
+	return contract.super.SignSendTransaction(transaction)
 
 }
 
