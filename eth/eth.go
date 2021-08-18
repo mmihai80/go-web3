@@ -463,13 +463,12 @@ func (eth *Eth) SendTransaction(transaction *dto.TransactionParameters) (string,
 // Use eth_getTransactionReceipt to get the contract address, after the transaction was mined, when you created a contract.
 func (eth *Eth) SignSendTransaction(transaction *dto.TransactionParameters) (string, error) {
 
-	if eth.wallet != nil {
-		transaction = eth.wallet.Sign(transaction)
+	if eth.wallet == nil {
+		return "", nil
 	}
 
-	params := make([]*dto.RequestTransactionParameters, 1)
-	params[0] = transaction.Transform()
-
+	params := make([]string, 1)
+	params[0] = eth.wallet.Sign(*transaction)
 	pointer := &dto.RequestResult{}
 
 	err := eth.provider.SendRequest(&pointer, "eth_sendRawTransaction", params)
