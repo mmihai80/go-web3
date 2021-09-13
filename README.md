@@ -115,7 +115,7 @@ TODO List
 - [x] eth_getCode
 - [x] eth_sign
 - [x] eth_sendTransaction
-- [ ] eth_sendRawTransaction
+- [x] eth_sendRawTransaction
 - [x] eth_call
 - [x] eth_estimateGas
 - [x] eth_getBlockByHash
