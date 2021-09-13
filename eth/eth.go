@@ -447,6 +447,30 @@ func (eth *Eth) SendTransaction(transaction *dto.TransactionParameters) (string,
 
 }
 
+// SendTransaction - Creates new message call transaction or a contract creation, if the data field contains code.
+// Reference: https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_sendRawTransaction
+// Parameters:
+//    1. String - Raw Signed Transaction.
+// Returns:
+//	  - DATA, 32 Bytes - the transaction hash, or the zero hash if the transaction is not yet available.
+// Use eth_getTransactionReceipt to get the contract address, after the transaction was mined, when you created a contract.
+func (eth *Eth) SendRawTransaction(rawTransaction string) (string, error) {
+
+	params := make([]string, 1)
+	params[0] = rawTransaction
+
+	pointer := &dto.RequestResult{}
+
+	err := eth.provider.SendRequest(&pointer, "eth_sendRawTransaction", params)
+
+	if err != nil {
+		return "", err
+	}
+
+	return pointer.ToString()
+
+}
+
 // SignSendTransaction - Sign Transaction and Creates new message call transaction or a contract creation
 // Reference: https://github.com/ethereum/wiki/wiki/JSON-RPC#eth_sendRawTransaction
 // Parameters:
