@@ -5,5 +5,5 @@ import (
 )
 
 type WalletInterface interface {
-	Sign(tx dto.TransactionParameters) string
+	Sign(tx dto.TransactionParameters) (string, error)
 }

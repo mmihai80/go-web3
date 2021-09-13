@@ -34,7 +34,7 @@ import (
 
 func TestGetBlockTransactionCountByNumber(t *testing.T) {
 
-	var connection = web3.NewWeb3(providers.NewHTTPProvider("127.0.0.1:8545", 10, false))
+	var connection = web3.NewWeb3(providers.NewHTTPProvider("127.0.0.1:8545", 10, false), nil)
 
 	// submit a transaction, wait for the block and there should be 1 tx.
 	coinbase, err := connection.Eth.GetCoinbase()

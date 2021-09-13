@@ -45,22 +45,11 @@ type Web3 struct {
 	Utils    *utils.Utils
 }
 
-// NewWeb3 - Web3 Module constructor to set the default provider, Eth, Net and Personal
-func NewWeb3(provider providers.ProviderInterface) *Web3 {
+// NewWeb3 - Web3 Module constructor to set the default provider, wallet, Eth, Net and Personal
+func NewWeb3(provider providers.ProviderInterface, wallet wallet.WalletInterface) *Web3 {
 	web3 := new(Web3)
 	web3.Provider = provider
-	web3.Eth = eth.NewEth(provider)
-	web3.Net = net.NewNet(provider)
-	web3.Personal = personal.NewPersonal(provider)
-	web3.Utils = utils.NewUtils(provider)
-	return web3
-}
-
-// NewWeb3 - Web3 Module constructor to set the default provider, Eth, Net and Personal
-func NewWeb3_wWallet(provider providers.ProviderInterface, wallet wallet.WalletInterface) *Web3 {
-	web3 := new(Web3)
-	web3.Provider = provider
-	web3.Eth = eth.NewEth_wWallet(provider, wallet)
+	web3.Eth = eth.NewEth(provider, wallet)
 	web3.Net = net.NewNet(provider)
 	web3.Personal = personal.NewPersonal(provider)
 	web3.Utils = utils.NewUtils(provider)

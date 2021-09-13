@@ -23,19 +23,20 @@ package test
 
 import (
 	"fmt"
+	"math/big"
+	"testing"
+	"time"
+
 	"github.com/mmihai80/go-web3"
 	"github.com/mmihai80/go-web3/complex/types"
 	"github.com/mmihai80/go-web3/dto"
 	"github.com/mmihai80/go-web3/eth/block"
 	"github.com/mmihai80/go-web3/providers"
-	"math/big"
-	"testing"
-	"time"
 )
 
 func TestEthGetTransactionCount(t *testing.T) {
 
-	var connection = web3.NewWeb3(providers.NewHTTPProvider("127.0.0.1:8545", 10, false))
+	var connection = web3.NewWeb3(providers.NewHTTPProvider("127.0.0.1:8545", 10, false), nil)
 
 	coinbase, _ := connection.Eth.GetCoinbase()
 

@@ -53,7 +53,7 @@ func TestEthGetcode(t *testing.T) {
 
 	json.Unmarshal(content, &unmarshalResponse)
 
-	var connection = web3.NewWeb3(providers.NewHTTPProvider("127.0.0.1:8545", 10, false))
+	var connection = web3.NewWeb3(providers.NewHTTPProvider("127.0.0.1:8545", 10, false), nil)
 	bytecode := unmarshalResponse.Bytecode
 	deployedBytecode := unmarshalResponse.DeployedBytecode
 

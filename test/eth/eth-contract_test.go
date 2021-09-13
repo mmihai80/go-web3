@@ -24,12 +24,13 @@ package test
 import (
 	"encoding/json"
 	"fmt"
-	web3 "github.com/mmihai80/go-web3"
-	"github.com/mmihai80/go-web3/dto"
-	"github.com/mmihai80/go-web3/providers"
 	"io/ioutil"
 	"math/big"
 	"testing"
+
+	web3 "github.com/mmihai80/go-web3"
+	"github.com/mmihai80/go-web3/dto"
+	"github.com/mmihai80/go-web3/providers"
 )
 
 func TestEthContract(t *testing.T) {
@@ -45,7 +46,7 @@ func TestEthContract(t *testing.T) {
 
 	json.Unmarshal(content, &unmarshalResponse)
 
-	var connection = web3.NewWeb3(providers.NewHTTPProvider("127.0.0.1:8545", 10, false))
+	var connection = web3.NewWeb3(providers.NewHTTPProvider("127.0.0.1:8545", 10, false), nil)
 	bytecode := unmarshalResponse.Bytecode
 	contract, err := connection.Eth.NewContract(unmarshalResponse.Abi)
 

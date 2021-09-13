@@ -29,7 +29,7 @@ import (
 
 func Test_IPCProvider(t *testing.T) {
 
-	var ethClient = web3.NewWeb3(providers.NewIPCProvider("/tmp/geth.ipc"))
+	var ethClient = web3.NewWeb3(providers.NewIPCProvider("/tmp/geth.ipc"), nil)
 
 	var _, error = ethClient.ClientVersion()
 

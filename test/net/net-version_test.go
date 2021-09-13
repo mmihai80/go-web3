@@ -32,7 +32,7 @@ import (
 
 func TestNetVersion(t *testing.T) {
 
-	var connection = web3.NewWeb3(providers.NewHTTPProvider("127.0.0.1:8545", 10, false))
+	var connection = web3.NewWeb3(providers.NewHTTPProvider("127.0.0.1:8545", 10, false), nil)
 
 	//Possible options
 	po := []string{"1", "1337", "2", "3", "4", "42"}

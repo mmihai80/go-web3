@@ -40,16 +40,8 @@ type Eth struct {
 	wallet   wallet.WalletInterface
 }
 
-// NewEth - Eth Module constructor to set the default provider
-func NewEth(provider providers.ProviderInterface) *Eth {
-	eth := new(Eth)
-	eth.provider = provider
-	eth.wallet = nil
-	return eth
-}
-
-// NewEth - Eth Module constructor to set the default provider
-func NewEth_wWallet(provider providers.ProviderInterface, wallet wallet.WalletInterface) *Eth {
+// NewEth - Eth Module constructor to set the default provider and wallet
+func NewEth(provider providers.ProviderInterface, wallet wallet.WalletInterface) *Eth {
 	eth := new(Eth)
 	eth.provider = provider
 	eth.wallet = wallet
@@ -488,14 +480,19 @@ func (eth *Eth) SendRawTransaction(rawTransaction string) (string, error) {
 func (eth *Eth) SignSendTransaction(transaction *dto.TransactionParameters) (string, error) {
 
 	if eth.wallet == nil {
-		return "", nil
+		return "", errors.New("no wallet assigned through constructor, transaction can not be signed")
+	}
+
+	signedTx, err := eth.wallet.Sign(*transaction)
+	if err != nil {
+		return "", err
 	}
 
 	params := make([]string, 1)
-	params[0] = eth.wallet.Sign(*transaction)
+	params[0] = signedTx
 	pointer := &dto.RequestResult{}
 
-	err := eth.provider.SendRequest(&pointer, "eth_sendRawTransaction", params)
+	err = eth.provider.SendRequest(&pointer, "eth_sendRawTransaction", params)
 
 	if err != nil {
 		return "", err

@@ -24,16 +24,17 @@ import (
 	"testing"
 
 	"fmt"
+	"math/big"
+
 	"github.com/mmihai80/go-web3"
 	"github.com/mmihai80/go-web3/complex/types"
 	"github.com/mmihai80/go-web3/dto"
 	"github.com/mmihai80/go-web3/providers"
-	"math/big"
 )
 
 func TestEthSignTransaction(t *testing.T) {
 
-	var connection = web3.NewWeb3(providers.NewHTTPProvider("127.0.0.1:8545", 10, false))
+	var connection = web3.NewWeb3(providers.NewHTTPProvider("127.0.0.1:8545", 10, false), nil)
 
 	coinbase, err := connection.Eth.GetCoinbase()
 
