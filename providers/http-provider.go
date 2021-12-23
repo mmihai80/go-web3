@@ -22,6 +22,7 @@
 package providers
 
 import (
+	"crypto/tls"
 	"io/ioutil"
 	"math/rand"
 	"net/http"
@@ -41,8 +42,9 @@ type HTTPProvider struct {
 }
 
 func NewHTTPProvider(address string, timeout int32, secure bool) *HTTPProvider {
+	tr := &http.Transport{TLSClientConfig: &tls.Config{InsecureSkipVerify: true}}
 	return NewHTTPProviderWithClient(address, timeout, secure, &http.Client{
-		Timeout: time.Second * time.Duration(timeout),
+		Timeout: time.Second * time.Duration(timeout), Transport: tr,
 	})
 }
 
